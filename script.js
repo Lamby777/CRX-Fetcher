@@ -44,7 +44,7 @@ function main() {
 		linksDiv.appendChild(a);
 	});
 
-	ids.value = "";
+	textarea.value = "";
 
 	linksDiv.scrollIntoView();
 }
