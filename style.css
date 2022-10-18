@@ -26,3 +26,12 @@ button#submit {
     height: 3em;
     margin: 0 auto;
 }
+
+div#links {
+	margin-bottom: 10em;
+}
+
+a.downloadLink {
+	font-size: 3.6vw;
+	color: white;
+}

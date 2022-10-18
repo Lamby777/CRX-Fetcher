@@ -9,31 +9,30 @@
 
 // Run the actual code when user clicks submit
 const textarea = document.getElementById("box");
+const linksDiv = document.getElementById("links");
 const submitButton = document.getElementById("submit");
 submitButton.addEventListener("click", main);
-
-
-// Used for invoking downloads
-const a = document.createElement("a");
 
 
 function main() {
 	const ids = textarea.value.split("\n");
 
-	ids.forEach(downloadOne);
-}
+	ids.forEach((id) => {
+		const a		= document.createElement("a");
+		a.href		= formatDownloadUrl(id);
+		a.download	= id+".zip";
 
-async function downloadOne(id) {
-	const url = formatDownloadUrl(id);
+		a.classList.add("downloadLink");
+		a.innerText	= id;
 
-	const res		= await fetch(url);
-	const content	= await res.text();
-}
+		a.onclick	= (() => a.remove());
 
-function downloadData(data, filename) {
-	a.href = "data:application/octet-stream," + encodeURIComponent(data);
-	a.download = filename;
-	a.click();
+		linksDiv.appendChild(a);
+	});
+
+	ids.value = "";
+
+	linksDiv.scrollIntoView();
 }
 
 function formatDownloadUrl(id) {
