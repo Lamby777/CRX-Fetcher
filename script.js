@@ -7,17 +7,31 @@
 
 "use strict";
 
-// Run the actual code when user clicks submit
-const textarea = document.getElementById("box");
 const linksDiv = document.getElementById("links");
+const textarea = document.getElementById("box");
 const submitButton = document.getElementById("submit");
+
+// Set default extensions list
+textarea.value =
+`# Here's a good list for most of our class.
+cjpalhdlnbpafiamejdnhcphjbkeiagm # uBlock Origin
+nngceckbapebfimnlniiiahkandclblb # BitWarden
+`
+
+// Run the actual code when user clicks submit
 submitButton.addEventListener("click", main);
+
+
 
 
 function main() {
 	const ids = textarea.value.split("\n");
 
-	ids.forEach((id) => {
+	ids.forEach((line) => {
+		// Strip out comments
+		const id	= (line.split("#")[0]).trim();
+		if (id.length <= 0) return;
+
 		const a		= document.createElement("a");
 		a.href		= formatDownloadUrl(id);
 		a.download	= id+".zip";

@@ -34,4 +34,5 @@ div#links {
 a.downloadLink {
 	font-size: 3.6vw;
 	color: white;
+	display: block;
 }
