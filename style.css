@@ -1,0 +1,28 @@
+body {
+    text-align: center;
+    background: #2c0a28;
+    color: white;
+}
+
+h1 {
+    font-size: 6vw;
+}
+
+h2 {
+    font-size: 4vw;
+}
+
+textarea#box {
+    font-size: 2.4vw;
+    width: 80%;
+    height: 7em;
+    margin: 0 auto;
+    color: black;
+}
+
+button#submit {
+    display: block;
+    width: 80%;
+    height: 3em;
+    margin: 0 auto;
+}
